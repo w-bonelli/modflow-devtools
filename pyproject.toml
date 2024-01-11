@@ -58,6 +58,8 @@ test = [
     "meson!=0.63.0",
     "ninja",
     "numpy",
+    "pandas",
+    "pooch",
     "pytest",
     "pytest-cov",
     "pytest-dotenv",

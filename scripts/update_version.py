@@ -1,10 +1,7 @@
 import argparse
 import textwrap
 from datetime import datetime
-from enum import Enum
-from os import PathLike
 from pathlib import Path
-from typing import NamedTuple
 
 from filelock import FileLock
 from packaging.version import Version
@@ -37,7 +34,7 @@ def update_init_py(timestamp: datetime, version: Version):
     print(f"Updated {_package_init_path} to version {version}")
 
 
-def update_docs_config(timestamp: datetime, version: Version):
+def update_docs_config(version: Version):
     lines = _docs_config_path.read_text().rstrip().split("\n")
     with open(_docs_config_path, "w") as f:
         for line in lines:
@@ -64,7 +61,7 @@ def update_version(
         with lock:
             update_version_txt(version)
             update_init_py(timestamp, version)
-            update_docs_config(timestamp, version)
+            update_docs_config(version)
     finally:
         try:
             lock_path.unlink()
