@@ -144,3 +144,6 @@ bin
 
 **.DS_Store
 data_backup
+
+# version lock file
+*.lock
