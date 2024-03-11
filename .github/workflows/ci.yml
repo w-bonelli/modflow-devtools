@@ -32,8 +32,11 @@ jobs:
       - name: Install Python packages
         run: pip install ".[lint]"
 
-      - name: Run ruff
+      - name: Lint
         run: ruff check .
+
+      - name: Check format
+        run: ruff format . --check
   
   build:
     name: Build
